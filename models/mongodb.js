@@ -1,5 +1,5 @@
 var mongoose = require('mongoose');
-var settings = require('../settings');
+var settings = require('../setting');
 
 var userModel;
 
@@ -13,6 +13,8 @@ mongoose.connect('mongodb://' + settings.host + '/' + settings.db,
   });
 
 var users = new mongoose.Schema({
-  name: string,
-  password: string
+  name: String,
+  password: String
 });
+userModel = mongoose.model('user', users);
+module.exports = { 'user': userModel };

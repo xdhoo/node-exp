@@ -1,9 +1,13 @@
 var express = require('express');
 var router = express.Router();
 
-/* GET users listing. */
-router.get('/', function(req, res, next) {
-  res.send('respond with a resource');
-});
+var models = require('../models/mongodb')
 
+/* GET users listing. */
+debugger;
+router.get('/user',function(req,res,next){
+  models.user.find().exec((err,data)=>{
+    res.send(data);
+  })
+});
 module.exports = router;
