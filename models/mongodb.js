@@ -13,6 +13,7 @@ mongoose.connect('mongodb://' + settings.host + '/' + settings.db,
   });
 
 var users = new mongoose.Schema({
+  id: Number,
   name: String,
   password: String
 });
